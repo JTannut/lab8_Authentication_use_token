@@ -96,9 +96,12 @@ const Student = ({ token }) => {
             <div className={styles.container}>
                 <Navbar />
                 <h1>Students</h1>
+                {student.fname} {student.surname}
                 <div>
                 <ul>{printStudents(data.list)} </ul>
+                
                 <h2>Add Student</h2>
+                 
                     Name : <input type="text" onChange={(e) => setFname(e.target.value)}></input>
                     SurName : <input type="text" onChange={(e) => setSurname(e.target.value)}></input>
                     Major : <input type="text" onChange={(e) => setMajor(e.target.value)}></input>
