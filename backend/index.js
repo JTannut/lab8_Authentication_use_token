@@ -33,7 +33,6 @@ let students = {
 router.route('/students')
     .get((req, res) => res.json(students))
     .post((req, res) => {
-
         let id = (students.list.length)?students.list[students.list.length-1].id+1:1
         let fname = req.body.fname
         let surname = req.body.surname
@@ -105,7 +104,7 @@ router.post('/login', (req, res, next) => {
         if (err) return next(err)
         if (user) {
             const token = jwt.sign(user, db.SECRET, {
-                expiresIn: '1d'
+                expiresIn: (req.body.tick !=="" ? '7d' : '1d' )
             })
             // req.cookie.token = token
             res.setHeader(

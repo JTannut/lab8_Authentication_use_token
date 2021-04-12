@@ -11,8 +11,11 @@ export default function Login({ token }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
+    const [tick, setTick] = useState('')
 
+  
     const login = async (req, res) => {
+        
         try {
             let result = await axios.post(`${config.URL}/login`,
                 { username, password },
@@ -73,6 +76,12 @@ export default function Login({ token }) {
                 </div>
                 <br />
                 {loginForm()}
+                
+                <div>
+                <input name="food" type="checkbox" value="fish"
+                onChange={ (e) => setTick(e.target.value)}></input>
+                    Increase expires 7 days
+                </div>
                 <div>
                     <button onClick={login}>Login</button>
                 </div>
